@@ -1,41 +1,28 @@
-from google.cloud import bigquery
-import os
+import csv 
+import os 
+from  google.cloud import storage,bigquery 
 
-def load_csv_to_bq(event, context):
-    # Get the file info
-    bucket = event['bucket']
-    file = event['name']
-    uri = f"gs://{bucket}/{file}"
+def gcs_to_bigquery(event,context):
+    bucket_name = event['bucket']
+    file_name = event['name']
+    
+    storage_client = storage.Client()
+    bq_client = bigquery.Client()
+    
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+    contents = blob.download_as_text().splitlines()
+    reader = csv.DictReader(contents)
+    
+    dataset_id= os.environ["BQ_DATASET"]
+    table_id=os.environ["BQ_TABLE"]
+    table_ref=f"{bq_client.project}.{dataset_id}.{table_id}"
+    
+    row_to_insert = [ row for row in reader ]
+    errors = bq_client.insert_rows_json(table_ref,row_to_insert)
+    if errors:
+            print("❗ Errors while inserting: ", errors)
+    else:
+            print("Inserted ")
 
-    # Define BQ target
-    dataset_id = os.environ["DATASET_ID"]
-    table_id = os.environ["TABLE_ID"]
-
-    # Load config
-    client = bigquery.Client()
-    table_ref = f"{client.project}.{dataset_id}.{table_id}"
-
-    job_config = bigquery.LoadJobConfig(
-        source_format=bigquery.SourceFormat.CSV,
-        autodetect=True,
-        skip_leading_rows=1,
-    )
-
-    load_job = client.load_table_from_uri(uri, table_ref, job_config=job_config)
-    load_job.result()
-
-    print(f"Loaded {uri} into {table_ref}")
-
-
-def main():
-    # Example event dict for local testing
-    event = {
-        "bucket": "your-gcs-bucket-name",
-        "name": "path/to/your.csv"
-    }
-    context = None  # or a mock object if needed
-    load_csv_to_bq(event, context)
-
-
-if __name__ == "__main__":
-    main()
+    
