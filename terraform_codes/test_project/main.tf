@@ -1,3 +1,4 @@
-resource "google_compute_network" "vpc_network" {
-  name = "vpc-network"
+module "artifacroty_registry" {
+  source = "./artifactory_registry"
+  region = var.region
 }
