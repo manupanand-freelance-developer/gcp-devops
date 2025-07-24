@@ -1,4 +1,4 @@
 module "artifacroty_registry" {
   source = "./artifactory_registry"
-  region = var.region
+  af_region= var.af_region
 }

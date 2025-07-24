@@ -1,3 +1,3 @@
-variable "region" {
+variable "af_region" {
   
 }
