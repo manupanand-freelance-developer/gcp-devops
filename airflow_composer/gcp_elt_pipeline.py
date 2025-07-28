@@ -61,7 +61,7 @@ default_args = {
 
 # DAG definition
 with DAG(
-    "sales_orders_to_bigquery_with_transformation",
+    "sales_orders_to_bigquery_with_transformation", # name of the DAG
     default_args=default_args,
     schedule_interval=None,  # Trigger manually or as needed
 ) as dag:
