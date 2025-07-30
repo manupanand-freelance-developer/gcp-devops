@@ -1,2 +1,3 @@
 /cloud_functions/.venv
 /sensor-data/
+/fast_api/.venv
