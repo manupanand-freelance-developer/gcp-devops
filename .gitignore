@@ -1,3 +1,4 @@
 /cloud_functions/.venv
 /sensor-data/
-/fast_api/.venv
+/fast_api/app/.venv
+/fast_api/__pycache__
