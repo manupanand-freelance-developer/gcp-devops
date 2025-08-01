@@ -10,3 +10,5 @@ secret_string = response.payload.data.decode("UTF-8")
 
 def hello_world(request):
     return  secret_string
+    
+# this is code to check secret manager    
