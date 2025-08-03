@@ -1,0 +1,40 @@
+- name: Install Jenkins only if needed
+  when: not skip_install | bool  # when this false it will install / bool is to make it boolean
+  block: 
+      - name: Create init.d directory
+        ansible.builtin.file: 
+          path: /var/lib/jenkins/init.groovy.d
+          state: directory 
+          owner: jenkins 
+          group: jenkins 
+      
+      - name: Copy Init groovy files 
+        ansible.builtin.template: 
+          src: "{{item}}.groovy"
+          dest: /var/lib/jenkins/init.groovy.d/{{item}}.groovy
+          owner: jenkins 
+          group: jenkins 
+        loop: 
+          - 01-skip-unlock 
+          - 02-admin- user
+          - 03-plugins 
+      
+      - name: Start Jenkins 
+        ansible.builtin.systemd_service: 
+          name: jenkins 
+          state: restarted 
+          enabled: yes
+      
+
+
+
+# can create jobs either using groovy scripts or  ansible copy xml
+# # run jobs when needed 
+- name: Create jobs 
+  when: create_jobs | bool
+  ansible.builtin.include_tasks: 
+    file: mbranch-jobs.yml
+  loop: 
+     - { jobname: 'test-1' }
+     
+  

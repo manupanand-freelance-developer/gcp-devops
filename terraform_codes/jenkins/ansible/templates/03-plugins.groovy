@@ -1,19 +1,32 @@
-def plugins =[
-"workflow-multibranch"] #
+import jenkins.model.*
+import hudson.PluginWrapper
 
-def instance = Jenkins.getInstance()
-def pm = instance.getPluginmanager()
-def uc = instance.getUpdateCenter()
+def pluginsToInstall =[
+"workflow-multibranch",
+"git"
+] //plugins to install 
 
-plugins.each{ pluginName->
-    if(!pm.getPlugin(pluginName)){
-        def plugin= uc.getPlugin(pluginName)
-        if(plugin){
-            println("Installing"+pluginName)
-            plugin.deploy()
-        } 
-    }
+// refernece Jenkins Plugin Manager and Update Center
+
+def pluginManager = Jenkins.instance.pluginManager
+def updatedCenter = Jenkins.instance.updatedCenter
+
+//loop through each plugin and install if not alaready installed 
+pluginsToInstall.each{pluginName->
+  // check if the plugin is already installed 
+        if (!pluginManager.getPlugin(pluginName)){
+            println "Installing plugin:${pluginName}"
+            def plugin = updatedCenter.getPlugin(pluginName)
+            
+            if(plugin){
+                // Deploy plugin 
+                plugin.deploy(true).get()// `get()` waits for the installation to complete
+                println "Successfully installed ${pluginName}"
+            }else{
+                println "plugin ${pluginName} not found in update center"
+            }
+        }else{
+            println "Plugin ${pluginName} is already installed"
+        }
 
 }
-instance.save()
-instance.doSafeRestart()
