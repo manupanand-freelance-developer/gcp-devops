@@ -82,7 +82,7 @@
     version: latest
     return_value: true
     auth_kind: serviceaccount
-    service_account_file: /opt/service_account.json
+    service_account_file: $HOME/.ansible/secrets/service_account.json
   register: secret_result
 
 
