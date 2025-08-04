@@ -51,8 +51,14 @@
 # - name: test
 #   ansible.builtin.shell: echo  hello
 - name: Install collection  GCP community.
-  ansible.builtin.shell: ansible-galaxy collection install google.cloud
+  ansible.builtin.shell: "ansible-galaxy collection install google.cloud"
 
+- name: Install google-cloud-secret-manager Python package on control node
+  ansible.builtin.pip:
+    name: google-cloud-secret-manager
+    state: present
+    executable: pip3
+  run_once: true
 
 - name: Get secret value from GCP Secret Manager
   google.cloud.gcp_secret_manager:
