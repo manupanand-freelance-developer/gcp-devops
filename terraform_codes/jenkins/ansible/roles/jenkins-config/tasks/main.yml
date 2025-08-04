@@ -93,9 +93,10 @@
     dest: /var/lib/jenkins/init.groovy.d/{{item}}.groovy
     owner: jenkins 
     group: jenkins 
+    mode: '0644'
   loop: 
     - 01-skip-unlock 
-    - 02-admin- user
+    - 02-admin-user
     - 03-plugins 
     
 - name: Start Jenkins 
