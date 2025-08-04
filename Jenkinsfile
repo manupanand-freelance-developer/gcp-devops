@@ -1,16 +1,35 @@
 pipeline {
     agent any
     stages{
-        stage('One'){
+        stage('Compile'){
             steps{
-                sh 'echo step1'
+                sh 'echo build/compile'
             }
         }
-         stage('Two'){
+        stage('Test Cases'){
             steps{
-                sh 'echo step2'
+                sh 'echo test cases'
             }
         }
+        stage('Docker build'){
+            steps{
+                sh 'echo docker build'
+            }
+        }
+        stage('Docker push images'){
+            steps{
+                sh 'echo docker push images'
+            }
+        }
+        stage('Deploy to dev env'){
+            when{
+                expression{ env.BRANCH_NAME != 'main'}
+            }
+            steps{
+                sh 'echo deploy to dev env'
+            }
+        }
+        
     }
 
 }
