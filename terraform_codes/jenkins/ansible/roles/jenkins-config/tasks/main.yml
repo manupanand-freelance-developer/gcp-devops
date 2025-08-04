@@ -64,6 +64,15 @@
     state: present
     executable: pip3
   run_once: true
+  
+- name: Check if Ansible can read the service account file
+  ansible.builtin.stat:
+    path: /opt/service_account.json
+    register: sa_file
+  
+- name: Show file permissions
+  debug:
+      var: sa_file.stat
 
 - name: Get secret value from GCP Secret Manager
   google.cloud.gcp_secret_manager:
