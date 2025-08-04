@@ -55,7 +55,7 @@
 
 
 - name: Get Secret from secret manager
-  google.cloud.gcp_secret_manager:
+  google.cloud.gcp_secret_manager_info:
     name: admin_user
     project: zeta-flare-449207-r0 
     state: present
