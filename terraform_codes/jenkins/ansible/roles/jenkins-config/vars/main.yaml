@@ -1,3 +1,4 @@
 secrets: "{{ lookup('hashi_vault' )}}"
+sa_key_path: "{{ lookup('env', 'HOME') }}/.ansible/secrets/service_account.json"
 # skip_install: true
 # create_jobs:  true
