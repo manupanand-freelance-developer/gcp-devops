@@ -68,7 +68,7 @@
 - name: Get secret value from GCP Secret Manager
   google.cloud.gcp_secret_manager:
     name: admin_user
-    project: zeta-flare-449207-r0 
+    project: 816983369694 
     state: present
     return_value: true
     auth_kind: serviceaccount
