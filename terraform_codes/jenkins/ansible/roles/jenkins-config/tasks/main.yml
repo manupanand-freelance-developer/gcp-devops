@@ -77,7 +77,7 @@
 - name: Get secret value from GCP Secret Manager
   google.cloud.gcp_secret_manager:
     name: test
-    project: 
+    project: 816983369694 #projectid 289923
     state: present
     version: latest
     return_value: true
