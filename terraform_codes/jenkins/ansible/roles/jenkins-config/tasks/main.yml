@@ -54,16 +54,16 @@
   ansible.builtin.shell: ansible-galaxy collection install google.cloud
 
 
-# - name: Get Secret from secret manager
-#   google.cloud.gcp_secret_manager:
-#     name: admin_user
-#     project: zeta-flare-449207-r0 
-#     state: present
-#   register: username
+- name: Get Secret from secret manager
+  google.cloud.gcp_secret_manager:
+    name: admin_user
+    project: zeta-flare-449207-r0 
+    state: present
+  register: username
 
-# - name: user name out
-#   ansible.builtin.debug: 
-#      msg: username
+- name: user name out
+  ansible.builtin.debug: 
+     msg: username
    
 
 # can create jobs either using groovy scripts or  ansible copy xml
