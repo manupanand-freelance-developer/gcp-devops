@@ -1,0 +1,6 @@
+- name: Configuring server Roboshop playbook
+  hosts: all
+  become: true
+  roles:
+    - "{{role_name}}"
+  

@@ -1,0 +1,77 @@
+# - name: Install Jenkins only if needed
+#   when: not skip_install | bool  # when this false it will install / bool is to make it boolean
+#   block: 
+# - name: Install wget 
+#   ansible.builtin.dnf: 
+#      name: wget 
+#      state: latest
+     
+
+# - name: Download and copy repo
+#   ansible.builtin.get_url:
+#    url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+#    dest: /etc/yum.repos.d/jenkins.repo
+#    mode:  '0774'
+   
+# - name: Copy  Jenkins key
+#   ansible.builtin.shell: sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+  
+# - name: Install Jenkins, fontconfig, openjdk
+#   ansible.builtin.dnf:
+#      name: 
+#        - fontconfig 
+#        - java-21-openjdk
+#        - jenkins
+#      state: present
+     
+# - name: Create init.d directory
+#   ansible.builtin.file: 
+#     path: /var/lib/jenkins/init.groovy.d
+#     state: directory 
+#     owner: jenkins 
+#     group: jenkins 
+
+# - name: Copy Init groovy files 
+#   ansible.builtin.template: 
+#     src: "{{item}}.groovy"
+#     dest: /var/lib/jenkins/init.groovy.d/{{item}}.groovy
+#     owner: jenkins 
+#     group: jenkins 
+#   loop: 
+#     - 01-skip-unlock 
+#     - 02-admin- user
+#     - 03-plugins 
+
+# - name: Start Jenkins 
+#   ansible.builtin.systemd_service: 
+#     name: jenkins 
+#     state: restarted 
+#     enabled: yes
+
+- name: Install collection  GCP community.
+  community.general.ansible_galaxy_install:
+    type: collection
+    name: google.cloud
+
+- name: Get Secret from secret manager
+  google.cloud.gcp_secret_manager:
+    name: admin_user
+    project: zeta-flare-449207-r0 
+    state: present
+  register: username
+
+- name: user name out
+  ansible.builtin.debug: 
+     msg: username
+   
+
+# can create jobs either using groovy scripts or  ansible copy xml
+# # run jobs when needed 
+# - name: Create jobs 
+#   when: create_jobs | bool
+#   ansible.builtin.include_tasks: 
+#     file: mbranch-jobs.yml
+#   loop: 
+#      - { jobname: 'test-1' }
+     
+  
