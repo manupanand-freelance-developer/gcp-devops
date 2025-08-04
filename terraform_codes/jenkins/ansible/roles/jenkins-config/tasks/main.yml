@@ -76,7 +76,7 @@
 
 - name: Get secret value from GCP Secret Manager
   google.cloud.gcp_secret_manager:
-    name: admin_user
+    name: test
     project: 816983369694 
     state: present
     version: latest
