@@ -79,6 +79,7 @@
     name: admin_user
     project: 816983369694 
     state: present
+    version: latest
     return_value: true
     auth_kind: serviceaccount
     service_account_file: /opt/service_account.json
