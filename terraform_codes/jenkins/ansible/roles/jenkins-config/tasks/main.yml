@@ -42,7 +42,7 @@
     state: present
     
 - name: Install collection  GCP community.
-  ansible.builtin.shell: "ansible-galaxy collection install google.cloud"
+  ansible.builtin.shell: ansible-galaxy collection install google.cloud
 
 - name: Install google-cloud-secret-manager Python package on control node
   ansible.builtin.pip:

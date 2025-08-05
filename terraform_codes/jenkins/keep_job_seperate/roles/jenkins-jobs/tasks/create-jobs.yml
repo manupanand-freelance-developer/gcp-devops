@@ -1,4 +1,8 @@
 
+
+- name: Install collection  GCP community.
+  ansible.builtin.shell: ansible-galaxy collection install community.general
+
 - name: Get secret value from GCP Secret Manager
   google.cloud.gcp_secret_manager:
     name: admin_user
@@ -35,7 +39,7 @@
     config: "{{ lookup('file', '/tmp/mbranch.xml')}}"
     name: "{{ item.jobName }}"
     password: "{{ password.value }}"
-    url: http://34.100.217.177:8080
+    url: http://34.100.217.177:8080 # change url if needed
     user: "{{ username.value }}"
  
   
