@@ -27,7 +27,12 @@
     service_account_file: "{{ sa_key_path }}"
   register: password
 
-
+- name: Install jenkins  Python package for collection
+  ansible.builtin.pip:
+    name: python-jenkins
+    state: present
+    executable: pip3
+  run_once: true
 
 - name: Create Job file
   ansible.builtin.template: 
