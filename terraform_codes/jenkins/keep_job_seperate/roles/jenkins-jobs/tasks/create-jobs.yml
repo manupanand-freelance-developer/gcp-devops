@@ -1,45 +1,46 @@
+- name: test
+  ansible.builtin.shell: echo test ok
+
+# - name: Install collection  GCP community.
+#   ansible.builtin.shell: ansible-galaxy collection install community.general
+
+# - name: Get secret value from GCP Secret Manager
+#   google.cloud.gcp_secret_manager:
+#     name: admin_user
+#     project: 816983369694 #projectid 289923
+#     state: present
+#     version: latest
+#     return_value: true
+#     auth_kind: serviceaccount
+#     service_account_file: "{{ sa_key_path }}"
+#   register: username
 
 
-- name: Install collection  GCP community.
-  ansible.builtin.shell: ansible-galaxy collection install community.general
-
-- name: Get secret value from GCP Secret Manager
-  google.cloud.gcp_secret_manager:
-    name: admin_user
-    project: 816983369694 #projectid 289923
-    state: present
-    version: latest
-    return_value: true
-    auth_kind: serviceaccount
-    service_account_file: "{{ sa_key_path }}"
-  register: username
-
-
-- name: Get secret value from GCP Secret Manager
-  google.cloud.gcp_secret_manager:
-    name: admin_password
-    project: 816983369694 #projectid 289923
-    state: present
-    version: latest
-    return_value: true
-    auth_kind: serviceaccount
-    service_account_file: "{{ sa_key_path }}"
-  register: password
+# - name: Get secret value from GCP Secret Manager
+#   google.cloud.gcp_secret_manager:
+#     name: admin_password
+#     project: 816983369694 #projectid 289923
+#     state: present
+#     version: latest
+#     return_value: true
+#     auth_kind: serviceaccount
+#     service_account_file: "{{ sa_key_path }}"
+#   register: password
 
 
 
-- name: Create Job file
-  ansible.builtin.template: 
-     src: mbranch.xml 
-     dest: /tmp/mbranch.xml 
+# - name: Create Job file
+#   ansible.builtin.template: 
+#      src: mbranch.xml 
+#      dest: /tmp/mbranch.xml 
      
-  # using ansible collection jenkins to create job
-- name: Create Job from xml 
-  commmunity.general.jenkins_job: 
-    config: "{{ lookup('file', '/tmp/mbranch.xml')}}"
-    name: "{{ item.jobName }}"
-    password: "{{ password.value }}"
-    url: http://34.100.217.177:8080 # change url if needed
-    user: "{{ username.value }}"
+#   # using ansible collection jenkins to create job
+# - name: Create Job from xml 
+#   commmunity.general.jenkins_job: 
+#     config: "{{ lookup('file', '/tmp/mbranch.xml')}}"
+#     name: "{{ item.jobName }}"
+#     password: "{{ password.value }}"
+#     url: http://34.100.217.177:8080 # change url if needed
+#     user: "{{ username.value }}"
  
   
