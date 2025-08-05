@@ -4,28 +4,28 @@
 - name: Install collection  GCP community.
   ansible.builtin.shell: ansible-galaxy collection install community.general
 
-# - name: Get secret value from GCP Secret Manager
-#   google.cloud.gcp_secret_manager:
-#     name: admin_user
-#     project: 816983369694 #projectid 289923
-#     state: present
-#     version: latest
-#     return_value: true
-#     auth_kind: serviceaccount
-#     service_account_file: "{{ sa_key_path }}"
-#   register: username
+- name: Get secret value from GCP Secret Manager
+  google.cloud.gcp_secret_manager:
+    name: admin_user
+    project: 816983369694 #projectid 289923
+    state: present
+    version: latest
+    return_value: true
+    auth_kind: serviceaccount
+    service_account_file: "{{ sa_key_path }}"
+  register: username
 
 
-# - name: Get secret value from GCP Secret Manager
-#   google.cloud.gcp_secret_manager:
-#     name: admin_password
-#     project: 816983369694 #projectid 289923
-#     state: present
-#     version: latest
-#     return_value: true
-#     auth_kind: serviceaccount
-#     service_account_file: "{{ sa_key_path }}"
-#   register: password
+- name: Get secret value from GCP Secret Manager
+  google.cloud.gcp_secret_manager:
+    name: admin_password
+    project: 816983369694 #projectid 289923
+    state: present
+    version: latest
+    return_value: true
+    auth_kind: serviceaccount
+    service_account_file: "{{ sa_key_path }}"
+  register: password
 
 
 
