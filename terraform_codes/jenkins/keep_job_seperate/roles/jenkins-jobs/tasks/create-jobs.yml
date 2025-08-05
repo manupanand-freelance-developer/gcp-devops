@@ -29,10 +29,10 @@
 
 
 
-# - name: Create Job file
-#   ansible.builtin.template: 
-#      src: mbranch.xml 
-#      dest: /tmp/mbranch.xml 
+- name: Create Job file
+  ansible.builtin.template: 
+     src: mbranch.xml 
+     dest: /tmp/mbranch.xml 
      
 #   # using ansible collection jenkins to create job
 # - name: Create Job from xml 
