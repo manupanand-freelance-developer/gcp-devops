@@ -1,6 +1,5 @@
-#kkep jenkins job creation in  seperate repo
-- name: create jenkins jobs
-  hosts: localhost
-  # become: yes
-  roles: 
-     - jenkins-jobs
+- name: Configuring Jobs on server
+  hosts: all
+  become: true
+  roles:
+    - "{{ role_name }}"
