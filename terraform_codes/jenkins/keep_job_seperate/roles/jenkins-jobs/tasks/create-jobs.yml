@@ -1,8 +1,8 @@
 - name: test
   ansible.builtin.shell: echo test ok
 
-# - name: Install collection  GCP community.
-#   ansible.builtin.shell: ansible-galaxy collection install community.general
+- name: Install collection  GCP community.
+  ansible.builtin.shell: ansible-galaxy collection install community.general
 
 # - name: Get secret value from GCP Secret Manager
 #   google.cloud.gcp_secret_manager:
