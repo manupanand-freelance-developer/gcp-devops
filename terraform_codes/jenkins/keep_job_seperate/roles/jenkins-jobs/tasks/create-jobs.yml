@@ -34,13 +34,13 @@
      src: mbranch.xml 
      dest: /tmp/mbranch.xml 
      
-#   # using ansible collection jenkins to create job
-# - name: Create Job from xml 
-#   commmunity.general.jenkins_job: 
-#     config: "{{ lookup('file', '/tmp/mbranch.xml')}}"
-#     name: "{{ item.jobName }}"
-#     password: "{{ password.value }}"
-#     url: http://34.100.217.177:8080 # change url if needed
-#     user: "{{ username.value }}"
+  # using ansible collection jenkins to create job
+- name: Create Job from xml 
+  commmunity.general.jenkins_job: 
+    config: "{{ lookup('file', '/tmp/mbranch.xml')}}"
+    name: "{{ item.jobName }}"
+    password: "{{ password.value }}"
+    url: http://35.200.153.246:8080 # change url if needed
+    user: "{{ username.value }}"
  
   
