@@ -5,8 +5,8 @@ node(){
             print 'docker build'
         }
         stage('docker push'){
-            print 'docker push
-            npm i f
+            print 'docker push'
+            
         }
         stage('deploy'){
             print 'deploy'
