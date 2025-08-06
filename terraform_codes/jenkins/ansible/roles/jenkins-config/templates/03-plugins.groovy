@@ -6,7 +6,8 @@ def pluginsToInstall = [
     "workflow-multibranch",
     "git",
     "pipeline-stage-view",
-    "blueocean"
+    "blueocean",
+    "generic-webhook-trigger"
 ]
 
 // Reference Jenkins Plugin Manager and Update Center

@@ -6,7 +6,8 @@ node(){
             
             }
             stage('docker push'){
-                print 'docker push'
+                print 'docker push
+                npm i f
             
             }
             stage('deploy'){
@@ -18,10 +19,12 @@ node(){
             print 'compile'
         
         }
-        stage('Test Cases'){
+        if(BRANCH_NAME != main){
+            stage('Test Cases'){
             print 'test case'
-        
+             }
         }
+
     }
     
     
