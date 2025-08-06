@@ -15,10 +15,13 @@ node(){
             
             }   
     }else{
+        if(BRANCH_NAME == main){
         stage('compile'){
             print 'compile'
         
         }
+        }
+        
         if(BRANCH_NAME != main){
             stage('Test Cases'){
             print 'test case'
