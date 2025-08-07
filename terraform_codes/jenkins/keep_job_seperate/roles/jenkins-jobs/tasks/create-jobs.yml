@@ -45,7 +45,7 @@
     config: "{{ lookup('file', '/tmp/mbranch.xml')}}"
     name: "{{ item.jobName }}"
     password: "{{ password.value }}"
-    url: http://35.200.153.246:8080 # change url if needed
+    url: http://34.93.252.41:8080 # change url if needed
     user: "{{ username.value }}"
  
   
