@@ -2,13 +2,15 @@ node {
     def branch = env.BRANCH_NAME
     def user = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')[0]?.getUserId()
 
-    stage('Checkout') {
-        checkout scm
-        echo "Branch: ${branch}"
-        echo "Triggered by: ${user}"
-    }
-
+ 
     if (branch.startsWith("feature/")) {
+        stage('Checkout') {
+            checkout scm
+            echo "Branch: ${branch}"
+            echo "Triggered by: ${user}"
+            echo "trigeged"
+        }
+
         stage('Build & Test') {
             echo "Building feature branch..."
         }
