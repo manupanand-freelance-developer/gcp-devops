@@ -8,7 +8,7 @@ node {
             checkout scm
             echo "Branch: ${branch}"
             echo "Triggered by: ${user}"
-            echo "trigeged"
+            echo "trigeged okay"
         }
 
         stage('Build & Test') {
