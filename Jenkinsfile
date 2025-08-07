@@ -20,9 +20,10 @@ node {
             echo "Deploying to test environment..."
         }
 
-    } else if (branch == "master" || env.TAG_NAME) {
+    } else if (branch == "main" || env.TAG_NAME) {
         stage('Build') {
             echo "Building production code..."
+            echo "test main branch run"
         }
 
         stage('Approval') {
