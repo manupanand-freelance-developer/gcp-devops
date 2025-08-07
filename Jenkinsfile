@@ -24,6 +24,7 @@ node {
         stage('Build') {
             echo "Building production code..."
             echo "test main branch run"
+            echo "test main branch run 2"
         }
 
         stage('Approval') {
