@@ -10,6 +10,7 @@ node {
             echo "Triggered by: ${user}"
             echo "trigeged okay"
             echo "trigeged okay 2"
+            echo "trigeged okay feature branch newtest"
         }
 
         stage('Build & Test') {
