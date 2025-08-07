@@ -3,3 +3,4 @@
      file: create-jobs.yml
   loop: 
     - { jobName: 'test-1', jobDescription: 'testjob', repo_name: 'gcp-devops'}
+    - { jobName: 'blpnewtest', jobDescription: 'blpnewtest', repo_name: 'gcp-devops'}
