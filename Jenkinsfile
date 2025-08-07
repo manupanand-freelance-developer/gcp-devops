@@ -1,27 +1,37 @@
-node(){
-    sh 'env'
-    
-        stage('docker build'){
-            print 'docker build test blp2'
+node {
+    def branch = env.BRANCH_NAME
+    def user = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')[0]?.getUserId()
+
+    stage('Checkout') {
+        checkout scm
+        echo "Branch: ${branch}"
+        echo "Triggered by: ${user}"
+    }
+
+    if (branch.startsWith("feature/")) {
+        stage('Build & Test') {
+            echo "Building feature branch..."
         }
-        stage('docker push'){
-            print 'docker push'
-            
+
+        stage('Deploy to Test') {
+            echo "Deploying to test environment..."
         }
-        stage('deploy'){
-            print 'deploy'
-        }   
-   
-        
-            stage('compile'){
-                print 'compile'
-            }
-       
-        
-        
-            stage('Test Cases'){
-                print 'test case'
-            }
-      
-    
+
+    } else if (branch == "master" || env.TAG_NAME) {
+        stage('Build') {
+            echo "Building production code..."
+        }
+
+        stage('Approval') {
+            // Only admindev or admininfra can approve
+            input message: "Approve deployment to PROD?", 
+                  submitter: 'admindev,admininfra'
+        }
+
+        stage('Deploy to Production') {
+            echo "Deploying to production..."
+        }
+    } else {
+        echo "No matching deployment rule for this branch."
+    }
 }
