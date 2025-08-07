@@ -9,6 +9,7 @@ node {
             echo "Branch: ${branch}"
             echo "Triggered by: ${user}"
             echo "trigeged okay"
+            echo "trigeged okay 2"
         }
 
         stage('Build & Test') {
