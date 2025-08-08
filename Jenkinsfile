@@ -26,7 +26,7 @@ node {
             echo "test main branch run"
             echo "test main branch run 2"
             echo "testing pipeline jenkins in gcp"
-            echo "testing new trigger pipeline jenkins in gcp"
+            echo "testing new trigger pipeline jenkins in gcp to do"
         }
 
         stage('Approval') {
