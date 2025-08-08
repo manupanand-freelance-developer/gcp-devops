@@ -25,6 +25,7 @@ node {
             echo "Building production code..."
             echo "test main branch run"
             echo "test main branch run 2"
+            echo "testing pipeline jenkins in gcp"
         }
 
         stage('Approval') {

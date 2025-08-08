@@ -98,6 +98,7 @@
     - 01-skip-unlock 
     - 02-admin-user
     - 03-plugins 
+    - 04-shared-library
     
 - name: Start Jenkins 
   ansible.builtin.systemd_service: 
