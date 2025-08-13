@@ -7,7 +7,10 @@ def pluginsToInstall = [
     "git",
     "pipeline-stage-view",
     "blueocean",
-    "generic-webhook-trigger"
+    "generic-webhook-trigger",
+    "cloudbees-credentials",
+    "plain-credentials",
+    "credentials-binding"
 ]
 
 // Reference Jenkins Plugin Manager and Update Center

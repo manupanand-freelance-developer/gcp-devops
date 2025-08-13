@@ -33,7 +33,7 @@
         <source class="jenkins.plugins.git.GitSCMSource" plugin="git@5.7.0">
           <id>3d5f8337-f85b-45b3-a84d-93273ae26753</id>
           <remote>https://github.com/manupanand-freelance-developer/{{ item.repo_name }}</remote>
-          <credentialsId></credentialsId>
+          <credentialsId>{{ item.credentials }}</credentialsId>
           <traits>
             <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
           </traits>
