@@ -8,4 +8,5 @@
 # 
 module "bigquery" {
   source = "./bigquery"
+  location = var.af_region
 }
