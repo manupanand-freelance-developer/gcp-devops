@@ -21,47 +21,6 @@ resource "google_bigquery_table" "temperature_data" {
     env = "dev"
   }
 
-  schema = <<EOF
-[
-  {
-    "name": "temperature",
-    "type": "FLOAT64",
-    "mode": "NULLABLE",
-    "description": "temperature in degree C"
-  },
-  {
-    "name": "sensor1",
-    "type": "FLOAT64",
-    "mode": "NULLABLE",
-    "description": "Sensor 1 data"
-  },
-  {
-    "name": "sensor2",
-    "type": "FLOAT64",
-    "mode": "NULLABLE",
-    "description": "Sensor 2 data"
-  },
-  {
-    "name": "sensor3",
-    "type": "FLOAT64",
-    "mode": "NULLABLE",
-    "description": "Sensor 3 data"
-  },
-  {
-    "name": "sensor4",
-    "type": "FLOAT64",
-    "mode": "NULLABLE",
-    "description": "Sensor 4 data"
-  },
-  {
-    "name": "sensor5",
-    "type": "FLOAT64",
-    "mode": "NULLABLE",
-    "description": "Sensor 5 data"
-  }
-  
-  
-]
-EOF
+  schema = file("${path.module}schema.json")
 
 }
