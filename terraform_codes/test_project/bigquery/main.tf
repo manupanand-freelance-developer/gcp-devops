@@ -21,6 +21,6 @@ resource "google_bigquery_table" "temperature_data" {
     env = "dev"
   }
 
-  schema = file("${path.module}schema.json")
+  schema = file("${path.module}/schema.json")
 
 }
