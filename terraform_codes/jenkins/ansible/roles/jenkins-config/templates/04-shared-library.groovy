@@ -2,12 +2,12 @@ import jenkins.model.*;
 import org.jenkinsci.plugins.workflow.libs.*;
 import jenkins.scm.api.SCMSource;
 
-SCMSource scm = new jenkins.plugins.git.GitSCMSource("githuburl containg pipeline")
+SCMSource scm = new jenkins.plugins.git.GitSCMSource("https://github.com/manupanand-freelance-developer/ci-jenkins-prjt-infra-11-2025.git")
 scm.setCredentialsId("")
 
 LibraryRetriever libRetriever = new SCMSourceRetriever(scm)
 
-LibraryConfiguration libConfig = new LibraryConfiguration("just-name-of-library",libRetriever)
+LibraryConfiguration libConfig = new LibraryConfiguration("shared-pipeline",libRetriever)
 libConfig.setDefaultVersion("main")
 libConfig.setImplicit(false)
 libConfig.setIncludeInChangesets(true)
