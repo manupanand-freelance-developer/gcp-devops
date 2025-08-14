@@ -7,7 +7,7 @@ scm.setCredentialsId("")
 
 LibraryRetriever libRetriever = new SCMSourceRetriever(scm)
 
-LibraryConfiguration libConfig = new LibraryConfiguration("jenkins-library",libRetriever)
+LibraryConfiguration libConfig = new LibraryConfiguration("just-name-of-library",libRetriever)
 libConfig.setDefaultVersion("main")
 libConfig.setImplicit(false)
 libConfig.setIncludeInChangesets(true)
