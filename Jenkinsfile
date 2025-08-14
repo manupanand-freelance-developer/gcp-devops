@@ -1,2 +1,2 @@
 @Library(`jenkins-shared-pipeline`) 
-ci_pipeline() 
+ test() //ci_pipeline() 
