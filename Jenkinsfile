@@ -1,2 +1,2 @@
-@Library(`jenkins-shared-pipeline`) _
+@Library('jenkins-shared-pipeline') _
  test()
