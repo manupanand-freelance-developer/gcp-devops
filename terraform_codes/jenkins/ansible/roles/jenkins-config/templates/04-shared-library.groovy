@@ -7,7 +7,7 @@ scm.setCredentialsId("")
 
 LibraryRetriever libRetriever = new SCMSourceRetriever(scm)
 
-LibraryConfiguration libConfig = new LibraryConfiguration("shared-pipeline",libRetriever)
+LibraryConfiguration libConfig = new LibraryConfiguration("jenkins-shared-pipeline",libRetriever)
 libConfig.setDefaultVersion("main")
 libConfig.setImplicit(false)
 libConfig.setIncludeInChangesets(true)
