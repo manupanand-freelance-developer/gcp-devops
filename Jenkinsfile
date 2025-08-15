@@ -1,5 +1,6 @@
 @Library('jenkins-shared-pipeline') _
 
 env.appType='nodejs'
-pipeline()
+test2()
+//pipeline()
 //ci_pipeline()
