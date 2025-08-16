@@ -10,7 +10,8 @@ def pluginsToInstall = [
     "generic-webhook-trigger",
     "cloudbees-credentials",
     "plain-credentials",
-    "credentials-binding"
+    "credentials-binding",
+    "email-ext"
 ]
 
 // Reference Jenkins Plugin Manager and Update Center
