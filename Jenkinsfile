@@ -2,5 +2,5 @@
 
 env.appType='nodejs'
 //test2()
-pipeline()
-//ci_pipeline()
+//pipeline()
+ci_pipeline()
