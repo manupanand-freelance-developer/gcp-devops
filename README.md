@@ -6,3 +6,5 @@
 ```gcloud config set account  email@your.com ```
 ### List authenticated accounts
 ``` gcloud auth list ```
+### Set project on cli
+  ```gcloud config set project project-id-00```
