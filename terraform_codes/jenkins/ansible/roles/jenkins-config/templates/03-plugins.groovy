@@ -17,7 +17,8 @@ def pluginsToInstall = [
     "google-kubernetes-engine",
     "github-branch-source",
     "github",
-    "github-pullrequest"
+    "github-pullrequest",
+    "nodejs"
 ]
 
 // Reference Jenkins Plugin Manager and Update Center
