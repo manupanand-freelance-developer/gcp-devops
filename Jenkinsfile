@@ -4,5 +4,5 @@ env.appType='nodejs'
 //email_pipeline()
 
 //ci_pipeline()
-//firebase_pipleine()
-new_pipeline()
+firebase_pipleine()
+//new_pipeline()
