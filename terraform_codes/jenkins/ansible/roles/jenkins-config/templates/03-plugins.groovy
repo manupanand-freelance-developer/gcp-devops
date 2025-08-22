@@ -11,7 +11,13 @@ def pluginsToInstall = [
     "cloudbees-credentials",
     "plain-credentials",
     "credentials-binding",
-    "email-ext"
+    "email-ext",
+    "google-source-plugin",
+    "credentials",
+    "google-kubernetes-engine",
+    "github-branch-source",
+    "github",
+    "github-pullrequest"
 ]
 
 // Reference Jenkins Plugin Manager and Update Center
