@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    echo "Building from branch: $_BRANCH_NAME"
+    # Your build commands can then use this variable, e.g., for conditional logic
+    # based on the branch name. 

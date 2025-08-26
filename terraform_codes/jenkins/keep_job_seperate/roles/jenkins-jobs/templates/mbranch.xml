@@ -17,7 +17,15 @@
     <numToKeep>-1</numToKeep>
     <abortBuilds>false</abortBuilds>
   </orphanedItemStrategy>
-  <triggers/>
+
+  <!-- ✅ TRIGGER BLOCK ADDED HERE -->
+  <triggers>
+    <com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger plugin="cloudbees-folder@6.1037.v4cb_8573b_72a_a_">
+      <spec>H/2 * * * *</spec> <!-- every 2 minutes -->
+      <interval>120000</interval>
+    </com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger>
+  </triggers>
+
   <disabled>false</disabled>
   <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.1235.v04e86c7ce54c">
     <data>
@@ -25,7 +33,7 @@
         <source class="jenkins.plugins.git.GitSCMSource" plugin="git@5.7.0">
           <id>3d5f8337-f85b-45b3-a84d-93273ae26753</id>
           <remote>https://github.com/manupanand-freelance-developer/{{ item.repo_name }}</remote>
-          <credentialsId></credentialsId>
+          <credentialsId>{{ item.credentials }}</credentialsId>
           <traits>
             <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
           </traits>
@@ -37,6 +45,7 @@
     </data>
     <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
   </sources>
+
   <factory class="org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory">
     <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
     <scriptPath>Jenkinsfile</scriptPath>
