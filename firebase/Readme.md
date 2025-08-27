@@ -6,6 +6,7 @@ cd hello-world-app
 ng serve
 
 ```
+ng server to test local 
 will open at https://localhost:4200
 
 ### Install firebase tools
@@ -25,3 +26,6 @@ ng build --prod
 firebase deploy --token "$FIREBASE_TOKEN"
 
 ```
+store token as secret text
+
+firebase init hosting --project projectname
