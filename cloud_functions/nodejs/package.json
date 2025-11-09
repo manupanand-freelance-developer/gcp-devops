@@ -1,0 +1,15 @@
+{
+  "name": "hello-http-function",
+  "version": "1.0.0",
+  "description": "A simple Google Cloud HTTP Function",
+  "main": "index.js",
+  "scripts": {
+    "start": "functions-framework --target=hellohttp"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
